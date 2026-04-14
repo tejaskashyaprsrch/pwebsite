@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Electoral Systems Research</title>
+  <link rel="stylesheet" href="css/style.css" />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=DM+Mono:wght@300;400;500&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
+</head>
+<body>
+
+  <!-- NAV -->
+  <nav class="nav">
+    <a href="index.html" class="nav-logo">Electoral Research</a>
+    <ul class="nav-links">
+      <li><a href="index.html" class="active">Home</a></li>
+      <li><a href="research.html">Research</a></li>
+      <li><a href="simulations.html">Simulations</a></li>
+      <li><a href="future.html">Future Work</a></li>
+      <li><a href="contact.html">Contact</a></li>
+    </ul>
+    <button class="nav-toggle" aria-label="Toggle menu">&#9776;</button>
+  </nav>
+
+  <!-- HERO -->
+  <header class="hero">
+    <div class="hero-bg"></div>
+    <div class="hero-content">
+      <span class="hero-label">Computational Political Science</span>
+      <h1 class="hero-title">Modeling Voter Behavior<br/><em>& Electoral Systems</em></h1>
+      <p class="hero-sub" id="hero-sub"><!-- CONTENT: Write a 1–2 sentence tagline that captures the spirit of your research. Example: "Agent-based simulations exploring how party structures, voter ideology, and turnout interact to shape democratic outcomes." --></p>
+      <div class="hero-cta">
+        <a href="research.html" class="btn btn-primary">View Research</a>
+        <a href="simulations.html" class="btn btn-ghost">Explore Simulations</a>
+      </div>
+    </div>
+    <div class="hero-stat-strip">
+      <div class="stat">
+        <span class="stat-num">10D</span>
+        <span class="stat-label">Ideology Space</span>
+      </div>
+      <div class="stat-divider"></div>
+      <div class="stat">
+        <span class="stat-num">200+</span>
+        <span class="stat-label">Elections / Trial</span>
+      </div>
+      <div class="stat-divider"></div>
+      <div class="stat">
+        <span class="stat-num">2–20</span>
+        <span class="stat-label">Party Configurations</span>
+      </div>
+      <div class="stat-divider"></div>
+      <div class="stat">
+        <span class="stat-num">50</span>
+        <span class="stat-label">Trials per Count</span>
+      </div>
+    </div>
+  </header>
+
+  <!-- OVERVIEW CARDS -->
+  <section class="section">
+    <div class="container">
+      <h2 class="section-title">Research Overview</h2>
+      <div class="card-grid">
+
+        <a href="research.html#model" class="card">
+          <div class="card-icon">⬡</div>
+          <h3>The Model</h3>
+          <p id="overview-model"><!-- CONTENT: Brief description of your modeling approach — what the simulation captures and why. --></p>
+          <span class="card-link">Read more →</span>
+        </a>
+
+        <a href="research.html#findings" class="card">
+          <div class="card-icon">◈</div>
+          <h3>Key Findings</h3>
+          <p id="overview-findings"><!-- CONTENT: One or two headline findings — e.g., the optimal party count result, what happens to collective alienation. --></p>
+          <span class="card-link">Read more →</span>
+        </a>
+
+        <a href="simulations.html" class="card">
+          <div class="card-icon">⊕</div>
+          <h3>Simulations</h3>
+          <p id="overview-simulations"><!-- CONTENT: Describe what the simulations do — voter generation, turnout modeling, multi-party vs. two-party, third-party dynamics, etc. --></p>
+          <span class="card-link">Explore →</span>
+        </a>
+
+        <a href="future.html" class="card">
+          <div class="card-icon">◎</div>
+          <h3>Future Work</h3>
+          <p id="overview-future"><!-- CONTENT: Tease the next directions — e.g., ranked choice, geographic modeling, media effects, etc. --></p>
+          <span class="card-link">See plans →</span>
+        </a>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- RESULT HIGHLIGHT -->
+  <section class="section section-dark">
+    <div class="container result-highlight">
+      <div class="result-text">
+        <span class="label-tag">Headline Result</span>
+        <h2 id="result-headline"><!-- CONTENT: State your most interesting result as a bold claim. E.g., "Three parties minimize collective alienation — more choice doesn't help." --></h2>
+        <p id="result-body"><!-- CONTENT: Expand on the result in 2–4 sentences. Describe what "collective alienation" means, what the simulation tested, and what the data showed. --></p>
+        <a href="research.html#findings" class="btn btn-primary">Full Analysis</a>
+      </div>
+      <div class="result-visual">
+        <img src="assets/chart-optimal.png" alt="Collective Alienation vs Number of Parties" class="result-img" />
+        <span class="result-img-caption">Collective Alienation vs. Number of Parties (Position Noise: 0.02)</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer class="footer">
+    <div class="container footer-inner">
+      <span class="footer-name" id="footer-name"><!-- CONTENT: Your name --></span>
+      <span class="footer-sep">·</span>
+      <a href="contact.html" class="footer-link">Contact</a>
+      <span class="footer-sep">·</span>
+      <a href="https://github.com/" class="footer-link" id="footer-github" target="_blank">GitHub</a>
+    </div>
+  </footer>
+
+  <script src="js/main.js"></script>
+</body>
+</html>
