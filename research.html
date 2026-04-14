@@ -32,39 +32,45 @@
 
   <main class="container page-content">
 
-    <!-- MOTIVATION -->
     <section class="research-section" id="motivation">
       <div class="research-label">01 — Motivation</div>
       <h2 class="research-heading">Why This Question?</h2>
       <div class="research-body">
-        <p id="motivation-text"><!-- CONTENT: Write 2–4 paragraphs about what motivated this research. What question were you trying to answer? Why does the number of parties matter for democracy? What's the real-world relevance? --></p>
+        <p id="motivation-text">My research was originally born out of a desire to accurately model the 2024 USA presidential election using real-world polling data. However, once the model was built, I became fascinated by a deeper, more structural question: why are we limited to two choices when so much of the electorate feels unheard? This led me to explore the "optimal" number of parties—the point where voter representation is maximized without falling into the chaos of fragmentation.</p>
+        <p>In the real world, we see the US struggling with two-party gridlock and negative partisanship, while many European multi-party systems face different challenges with coalition-building. I wanted to use agent-based modeling to see if there is a mathematical "sweet spot" that makes voters the most "happy" in aggregate. By shifting the focus from who wins to how well the winner represents the people, we can better understand the structural failures of our current systems.</p>
       </div>
     </section>
 
     <div class="section-divider"></div>
 
-    <!-- MODEL -->
     <section class="research-section" id="model">
       <div class="research-label">02 — Model</div>
       <h2 class="research-heading">How the Model Works</h2>
       <div class="research-body">
-        <p id="model-overview"><!-- CONTENT: Describe your model at a high level. What does ideology space mean? What are the 10 dimensions? How are voters generated? --></p>
+        <p id="model-overview">At the heart of the simulation is a 10-dimensional "ideology space." Rather than a simple left-vs-right line, each voter and party is assigned a vector of ten values ranging from -1.0 to 1.0. These dimensions represent distinct policy areas like the economy, climate, and defense. This multi-dimensional approach allows the model to capture "cross-pressured" voters—for example, someone who might be fiscally conservative but socially progressive—who are often ignored in standard two-party models.</p>
 
         <div class="callout">
           <div class="callout-title">Ideology Dimensions</div>
           <div class="callout-grid" id="dimension-list">
-            <!-- CONTENT: List your 10 dimensions and a brief description of each. Format: 
-            <div class="callout-item"><span class="dim-name">Economy</span><span class="dim-desc">...</span></div>
-            Repeat for all 10. -->
+            <div class="callout-item"><span class="dim-name">Economy</span><span class="dim-desc">Fiscal policy, market regulation, and wealth distribution.</span></div>
+            <div class="callout-item"><span class="dim-name">Healthcare</span><span class="dim-desc">Public vs. private insurance systems and access to care.</span></div>
+            <div class="callout-item"><span class="dim-name">Climate</span><span class="dim-desc">Environmental regulations and the transition to green energy.</span></div>
+            <div class="callout-item"><span class="dim-name">Immigration</span><span class="dim-desc">Border security, pathways to citizenship, and visa quotas.</span></div>
+            <div class="callout-item"><span class="dim-name">Education</span><span class="dim-desc">Funding for public schools vs. school choice and university costs.</span></div>
+            <div class="callout-item"><span class="dim-name">Taxes</span><span class="dim-desc">Corporate and personal income tax rates and tax code complexity.</span></div>
+            <div class="callout-item"><span class="dim-name">Defense</span><span class="dim-desc">Military spending levels and global intervention strategies.</span></div>
+            <div class="callout-item"><span class="dim-name">Civil Rights</span><span class="dim-desc">Social equity legislation and individual liberty protections.</span></div>
+            <div class="callout-item"><span class="dim-name">Tech Regulation</span><span class="dim-desc">Antitrust enforcement and digital privacy standards.</span></div>
+            <div class="callout-item"><span class="dim-name">Foreign Policy</span><span class="dim-desc">International alliances, trade agreements, and diplomatic stance.</span></div>
           </div>
         </div>
 
-        <p id="model-detail"><!-- CONTENT: Describe voter generation more specifically. How are party affiliates clustered? What does centerShare and crossShare mean? How does the turnout mechanic work? --></p>
+        <p id="model-detail">Voters are generated in clusters to mimic real-world demographics. "Democrat" and "Republican" shares represent partisan bases, while the "Center" share represents moderates and "Cross" share represents voters with high variance across dimensions. The simulation also accounts for turnout variability based on "firmness"—a measure of how far a voter's views are from the neutral center. Essentially, the more passionate or "firm" a voter is in their views, the more likely they are to show up at the polls.</p>
         
         <div class="callout callout-mono">
           <div class="callout-title">Turnout Formula</div>
           <code>turnout_chance = 0.4 + (firmness / 2)</code>
-          <p id="turnout-explanation"><!-- CONTENT: Explain what "firmness" is, and why more extreme voters turn out more. Discuss the "Trump effect" from voterThirdPartySim.py if you want. --></p>
+          <p id="turnout-explanation">"Firmness" is calculated as the Euclidean distance of a voter's 10D vector from the origin (neutral center). Conceptually, this formula ensures that ideological moderates are less likely to vote than partisans. This mirrors the real-world "Trump effect" or "polarization boost," where extreme candidates can drive higher turnout among their base while alienating the moderate center.</p>
         </div>
 
       </div>
@@ -72,14 +78,13 @@
 
     <div class="section-divider"></div>
 
-    <!-- FINDINGS -->
     <section class="research-section" id="findings">
       <div class="research-label">03 — Findings</div>
       <h2 class="research-heading">Key Findings</h2>
       <div class="research-body">
 
         <h3 class="finding-title">Finding 1 — Optimal Party Count</h3>
-        <p id="finding-1"><!-- CONTENT: Describe the main finding — 3 parties minimizes collective alienation. What does that mean? Why does adding more parties not help? --></p>
+        <p id="finding-1">The most striking result from the model is that a 3-party system consistently minimizes "collective alienation"—the average distance between voters and the winning party. While I initially hypothesized that more choice (5+ parties) would always be better, the data showed that after 3 parties, the system begins to fragment. Adding more parties actually increases the average distance to the winner because the vote splits so much that a party with very narrow appeal can win, leaving the majority of the electorate feeling unrepresented.</p>
 
         <figure class="figure">
           <img src="assets/chart-optimal.png" alt="Collective Alienation vs Number of Parties" class="figure-img"/>
@@ -87,10 +92,10 @@
         </figure>
 
         <h3 class="finding-title">Finding 2 — Third Party Dynamics</h3>
-        <p id="finding-2"><!-- CONTENT: Describe what happens when you add a third party to the two-party sim. How does negative partisanship suppress third party growth? What does the adaptive third party position show? --></p>
+        <p id="finding-2">When introducing an adaptive third party into a two-party simulation, the model highlights the crushing power of negative partisanship. Conceptually, voters are often driven more by fear of the "other" side than by love for their own. This creates a barrier where a perfectly reasonable third party struggles to gain traction because voters fear "wasting" their vote and inadvertently helping the candidate they dislike the most. However, when the third party does adapt, it significantly improves representation for centrist and cross-pressured voters.</p>
 
         <h3 class="finding-title">Finding 3 — Noise &amp; Robustness</h3>
-        <p id="finding-3"><!-- CONTENT: Discuss the role of NOISE_VARIABLE = 0.02. How sensitive is the optimal count to position noise? Does it stay at 3 even with higher noise? --></p>
+        <p id="finding-3">I tested the model's sensitivity to "position noise" (ε = 0.02), which represents the fact that parties don't always perfectly align with their stated ideologies. Interestingly, the "Rule of 3" remained robust across different noise levels. Even as the system becomes more chaotic or parties shift their positions, the three-party configuration consistently remains the most efficient way to maximize collective voter happiness before hitting diminishing returns.</p>
 
         <div class="results-table-wrap">
           <table class="results-table">
@@ -98,13 +103,13 @@
               <tr><th>Parties</th><th>Avg Distance</th><th>Notes</th></tr>
             </thead>
             <tbody>
-              <tr><td>2</td><td>1.2667</td><td>—</td></tr>
-              <tr class="highlight-row"><td>3</td><td>1.1560</td><td>Optimal</td></tr>
-              <tr><td>4</td><td>1.2034</td><td>—</td></tr>
+              <tr><td>2</td><td>1.2667</td><td>Significant Alienation</td></tr>
+              <tr class="highlight-row"><td>3</td><td>1.1560</td><td>Optimal Representation</td></tr>
+              <tr><td>4</td><td>1.2034</td><td>Gains Lost to Fragmentation</td></tr>
               <tr><td>5</td><td>1.2134</td><td>—</td></tr>
               <tr><td>6</td><td>1.2224</td><td>—</td></tr>
-              <tr><td>10</td><td>1.2456</td><td>—</td></tr>
-              <tr><td>20</td><td>1.2526</td><td>—</td></tr>
+              <tr><td>10</td><td>1.2456</td><td>High Noise/Instability</td></tr>
+              <tr><td>20</td><td>1.2526</td><td>Returns to 2-party levels</td></tr>
             </tbody>
           </table>
         </div>
@@ -114,12 +119,12 @@
 
     <div class="section-divider"></div>
 
-    <!-- LIMITATIONS -->
     <section class="research-section" id="limitations">
       <div class="research-label">04 — Limitations</div>
       <h2 class="research-heading">Limitations &amp; Caveats</h2>
       <div class="research-body">
-        <p id="limitations-text"><!-- CONTENT: Write honestly about the limitations of your model. Some starting points: the ideology space is abstract, turnout is simplified, real elections have geographic structure, media/money effects are absent, etc. --></p>
+        <p id="limitations-text">While this model provides valuable mathematical insights, it is an abstraction of reality. The 10D ideology space assumes that all issues have equal weight, whereas real-world voters often prioritize single issues like the economy or healthcare over all else. Furthermore, the model currently lacks geographic structure—it doesn't account for the Electoral College or the way voters are concentrated in specific cities or states, which is a major factor in US elections.</p>
+        <p>I also haven't yet modeled the influence of "big money," media echo chambers, or the incumbency advantage, all of which heavily distort the "optimal" mathematical outcome in the real world. Finally, while I use "collective alienation" as my primary metric, other metrics—like legislative stability or economic performance—might lead to different conclusions about what system is "best."</p>
       </div>
     </section>
 
@@ -127,11 +132,11 @@
 
   <footer class="footer">
     <div class="container footer-inner">
-      <span class="footer-name" id="footer-name"><!-- CONTENT: Your name --></span>
+      <span class="footer-name" id="footer-name">Tejas Kashyap</span>
       <span class="footer-sep">·</span>
       <a href="contact.html" class="footer-link">Contact</a>
       <span class="footer-sep">·</span>
-      <a href="https://github.com/" class="footer-link" id="footer-github" target="_blank">GitHub</a>
+      <a href="https://github.com/tejaskashyaprsrch" class="footer-link" id="footer-github" target="_blank">GitHub</a>
     </div>
   </footer>
 
