@@ -36,9 +36,9 @@
       <div class="research-label">sim_01 — voterSim.py</div>
       <h2 class="research-heading">Two-Party Voter Simulation</h2>
       <div class="research-body">
-        <p id="sim1-desc">The <code>voterSim.py</code> script serves as the baseline for my research, simulating a standard US two-party election. It utilizes a 10-dimensional ideology space where voters are generated into four categories—Democrat, Republican, Center, and Cross—with distribution ratios modeled after 2025 Pew Research data. Each dimension represents a specific policy area, from the economy to civil rights, allowing for a nuanced representation of political alignment beyond a simple left-right spectrum.</p>
+        <p id="sim1-desc">The <code>voterSim.py</code> script serves as the baseline for my research, simulating a standard US two-party election using a 10-dimensional ideology space. Voters are generated into four distinct categories—Democrat, Republican, Center, and Cross—with distribution ratios modeled after Pew Research data. Each dimension represents a key policy area, allowing for a more realistic representation of "cross-pressured" voters than a simple left-right spectrum.</p>
         
-        <p>To measure the effectiveness of the system, I use an "alienation" metric (the inverse of happiness), which calculates the Euclidean distance between a voter's 10D position and the position of the party they vote for. The simulation runs multiple trials to account for ideological noise, providing a statistical average of how well the two major parties represent the diverse interests of the American electorate.</p>
+        <p>This model measures effectiveness through a "happiness" vs. "alienation" metric, which calculates the distance between a voter's unique 10D coordinate and the party they ultimately support. By running hundreds of trials, the simulation identifies the baseline levels of representative friction inherent in a rigid two-party system.</p>
         
         <div class="callout callout-mono">
           <div class="callout-title">Voter Shares (Based on Pew Research, 2025)</div>
@@ -50,7 +50,7 @@
           </div>
         </div>
 
-        <p id="sim1-results">Results from the two-party simulation consistently showed a high level of "collective alienation," particularly for voters in the Center and Cross categories. While one party usually secures a narrow victory based on slight shifts in turnout noise, the total happiness metric remains relatively low because large segments of the population are forced to choose the "lesser of two evils," voting for a party that may still be quite distant from their actual 10D ideological coordinate.</p>
+        <p id="sim1-results">The results showed a predictably narrow divide between the two major parties, with wins often decided by minor fluctuations in turnout noise. However, the "totalHappiness" metric revealed that while a party may win the majority, a significant portion of the electorate remains deeply alienated. This suggests that the two-party system wins by consolidation rather than true representation.</p>
       </div>
     </section>
 
@@ -60,29 +60,18 @@
       <div class="research-label">sim_02 — voterThirdPartySim.py</div>
       <h2 class="research-heading">Third-Party Dynamics</h2>
       <div class="research-body">
-        <p id="sim2-desc">Building on the baseline, <code>voterThirdPartySim.py</code> introduces an adaptive third party. Initially starting at a neutral [0]*10 position, this party is designed to "learn" from each election cycle, shifting its ideological coordinates toward the average position of the voters who supported it. This simulation explores the viability of a centrist or alternative movement within a rigid two-party framework.</p>
+        <p id="sim2-desc">Building on the baseline, <code>voterThirdPartySim.py</code> introduces an adaptive third party that starts at a neutral origin ([0]*10). Unlike the fixed positions of the major parties, the third party shifts its platform each election cycle based on the average ideology of the voters it manages to capture. It’s an exploration of whether an "evolutionary" party can break the duopoly.</p>
         
-        <p>A key feature of this model is the "Trump effect" variable, which simulates how increased polarization boosts turnout for the two major parties. It also factors in a "fear factor"—the psychological barrier that prevents voters from supporting a third party even if they prefer its platform, out of fear that doing so will hand the election to the major party they dislike the most.</p>
+        <p>The simulation accounts for the "fear factor"—where voters might prefer a third party but fear "wasting" their vote—and a "Trump effect" variable. The latter models how high polarization increases turnout for the base while potentially squeezing the space available for a centrist alternative.</p>
 
-        <div class="callout callout-mono">
-          <div class="callout-title">Voter Shares (with Third Party)</div>
-          <div class="param-grid">
-            <div class="param"><span class="param-key">Democrat</span><span class="param-val">35.0%</span></div>
-            <div class="param"><span class="param-key">Republican</span><span class="param-val">35.5%</span></div>
-            <div class="param"><span class="param-key">Center</span><span class="param-val">25.5%</span></div>
-            <div class="param"><span class="param-key">Third Party</span><span class="param-val">1.68%</span></div>
-            <div class="param"><span class="param-key">Cross</span><span class="param-val">2.32%</span></div>
-          </div>
-        </div>
-
-        <p id="sim2-negative-partisanship">Negative partisanship is modeled through a specific penalty formula: <code>distDem -= (repExtreme * 0.4)</code>. Conceptually, this means that as the opposing party becomes more extreme, a voter’s perceived distance to their "own" party effectively shrinks—not because their party moved closer to them, but because their fear of the opposition drives them into a defensive loyalist position. This effectively traps the electorate in a two-party loop regardless of personal happiness.</p>
+        <p id="sim2-negative-partisanship">Negative partisanship is a core mechanic here, modeled with the formula <code>distDem -= (repExtreme * 0.4)</code>. Conceptually, this means voters aren't just pulled toward a party because they like it; they are pushed toward it because they fear the opposition. If the Republicans move further right, Democrats don't have to move closer to the center to keep their voters—the fear of the "extreme" opposition does the work for them.</p>
 
         <figure class="figure">
           <img src="assets/chart-voter-dist.png" alt="Voter Distribution: Leaning vs Firmness" class="figure-img"/>
           <figcaption>Voter distribution plotted by political leaning vs. firmness (distance from center). Blue = Democrat, Red = Republican, Gold = Third Party.</figcaption>
         </figure>
 
-        <p id="sim2-results">In these simulations, the third party often struggled to gain significant win counts due to the aforementioned negative partisanship penalties. However, its evolution was fascinating: over 100 elections, the third party would "drift" to find ideological gaps left by the two major parties. While it rarely won, its presence significantly lowered the collective alienation of the "Center" voters, proving that even a non-winning third party adds value to democratic representation.</p>
+        <p id="sim2-results">After 100 elections, the third party’s ideology usually evolved to settle in the gap between the two giants. While its win count remained low due to the negative partisanship "penalty," its existence consistently improved the aggregate representation of centrist voters. The data shows that the third party acts as a vital ideological "safety valve," even if it doesn't take the White House.</p>
       </div>
     </section>
 
@@ -92,7 +81,7 @@
       <div class="research-label">sim_03 — claudeElectionModel.py</div>
       <h2 class="research-heading">Multi-Party Optimal Count Model</h2>
       <div class="research-body">
-        <p id="sim3-desc">The <code>claudeElectionModel.py</code> is my most robust simulation, designed to answer the core question of my research: "What is the optimal number of parties?" Unlike previous models, this one spreads parties across the ideological spectrum using a noise epsilon (ε) to ensure realistic, non-perfect placement. The simulation is massive in scale, running 50 trials for each party count (from 2 to 20), with 200 elections per trial and 2,000 voters per election.</p>
+        <p id="sim3-desc">This is the most robust simulation in the suite, testing party counts from 2 all the way to 20. Parties are spread across the ideological spectrum with a position noise variable (epsilon) to prevent "perfect" placement. The model follows a rigorous structure: 50 trials, each containing 200 elections with 2,000 unique voters per election, ensuring the results are statistically significant and not just outliers.</p>
 
         <div class="callout callout-mono">
           <div class="callout-title">Model Parameters</div>
@@ -105,9 +94,9 @@
           </div>
         </div>
 
-        <p id="sim3-collective-alienation">I define "collective alienation" as the average Euclidean distance between every voter in the system and the ideological position of the election's winner. This is a vital measure of democratic quality; a lower number indicates that the winning party actually reflects the will and values of the people. In a 10D space, this distance captures nuances that a simple majority vote often ignores.</p>
+        <p id="sim3-collective-alienation">The primary metric used is "collective alienation"—the average Euclidean distance in 10D space between every voter and the winning party. It is a powerful measure of democratic health; a lower number means the government's position is actually close to the people's position. In short, it’s a mathematical way of asking: "How well does the winner represent everyone?"</p>
 
-        <p id="sim3-results">The results were striking: the 3-party system emerged as the optimal configuration. Moving from 2 to 3 parties caused the single largest drop in collective alienation. While adding even more parties (4, 5, or 10) continued to lower alienation slightly, the "noise" and fragmentation increased, and the marginal gains became negligible. The 3-party setup provides the perfect balance—it offers enough variety to represent the center while remaining stable enough to avoid the total ideological chaos of a 20-party system.</p>
+        <p id="sim3-results">The simulation returned a striking result: **3 parties is the optimal number.** As seen in the results table, moving from 2 to 3 parties provides the biggest drop in alienation (over 0.1 length). Interestingly, adding more than 3 parties causes the metric to worsen. This is likely due to "fragmentation noise," where too many choices split the vote so thinly that the winner represents a smaller and smaller ideological slice of the population.</p>
       </div>
     </section>
 
@@ -117,7 +106,7 @@
       <div class="research-label">sim_04 — voterMultiPartyExample.py</div>
       <h2 class="research-heading">Multi-Party Example Simulation</h2>
       <div class="research-body">
-        <p id="sim4-desc">The <code>voterMultiPartyExample.py</code> script is a refactored, modular version of the simulation used to demonstrate how easily the model can be expanded. It introduces a formal <code>Party</code> class, allowing for individual party traits like "turnout boost" or "issue weights." This script was used to explore specific "what-if" scenarios—such as a system with four parties of equal strength—to observe how the average difference between the top two finishers changes as the field becomes more crowded.</p>
+        <p id="sim4-desc">The <code>voterMultiPartyExample.py</code> script was built to explore the "what-ifs" of multi-party systems more granularly. It demonstrates how different party configurations—each with their own turnout boosts and issue weights—interact. I used this to specifically look at the margin of victory and how the "average difference" between the top two parties changes as the system grows more crowded, further supporting the finding that 3 parties provide the best balance of competition and stability.</p>
       </div>
     </section>
 
