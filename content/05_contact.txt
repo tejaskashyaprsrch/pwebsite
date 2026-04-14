@@ -8,7 +8,7 @@ Fill in the sections below for the Contact page.
 --------------------------------------------------------------------------------
 WRITE YOUR NAME HERE:
 
-
+Tejas Kashyap
 
 
 [id="bio-text"]  — Short bio (2–4 sentences)
@@ -19,13 +19,18 @@ What drives your interest in electoral modeling and computational social science
 --------------------------------------------------------------------------------
 WRITE HERE:
 
+I am a 14 year old researcher currently attending the Pingry School.
+I am very a very passionate CS and Math student.
 
+I'm planning to expand my research on these political models, with a
+massive model planned to directly prove or disprove Duvergers law releasing
+by September 2026.
 
 
 CONTACT LINKS — Update these in contact.html directly (search for the id)
 --------------------------------------------------------------------------------
 contact-email:
-  href="mailto:..."    →  Replace with your email address
+  href="mailto:..."    →  tejaskashyaptejasvi@gmail.com
   id="email-value"     →  Replace the <!-- CONTENT --> comment with your email
 
 contact-github:
@@ -58,7 +63,8 @@ voterMultiPartyExample.py
 --------------------------------------------------------------------------------
 WRITE HERE:
 
-
+As of right now, the source code for all my models are kept private. 
+I will release it as well as the new model in september 2026
 
 
 [id="repo-link"]  — GitHub repo button
