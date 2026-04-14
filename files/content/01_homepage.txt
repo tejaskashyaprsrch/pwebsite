@@ -1,0 +1,89 @@
+CONTENT FILE — index.html (Homepage)
+================================================================================
+Edit the sections below, then paste your text into the corresponding HTML
+elements (identified by their HTML id="..." attribute).
+
+To add content to the website, open the .html file and find the matching id.
+Replace the <!-- CONTENT: ... --> comment with your actual text.
+================================================================================
+
+
+[id="hero-sub"]  — Hero tagline (1–2 sentences)
+--------------------------------------------------------------------------------
+Write about your research tagline here.
+This should capture what you're studying and why it matters.
+Example direction: something like "Agent-based simulations exploring how party
+structures, voter ideology, and turnout interact to shape democratic outcomes."
+--------------------------------------------------------------------------------
+WRITE HERE:
+
+
+
+
+[id="overview-model"]  — Overview card: The Model (2–3 sentences)
+--------------------------------------------------------------------------------
+Write about your modeling approach here.
+What does the simulation capture? Why did you build it this way?
+--------------------------------------------------------------------------------
+WRITE HERE:
+
+
+
+
+[id="overview-findings"]  — Overview card: Key Findings (2–3 sentences)
+--------------------------------------------------------------------------------
+Write about your headline findings here.
+E.g., what did you discover about the optimal number of parties?
+What surprised you?
+--------------------------------------------------------------------------------
+WRITE HERE:
+
+
+
+
+[id="overview-simulations"]  — Overview card: Simulations (2–3 sentences)
+--------------------------------------------------------------------------------
+Write about the simulations here.
+What do they do? What range of scenarios do they cover?
+--------------------------------------------------------------------------------
+WRITE HERE:
+
+
+
+
+[id="overview-future"]  — Overview card: Future Work (1–2 sentences)
+--------------------------------------------------------------------------------
+Write about where this research is headed here.
+--------------------------------------------------------------------------------
+WRITE HERE:
+
+
+
+
+[id="result-headline"]  — Headline result (bold claim, 1 sentence)
+--------------------------------------------------------------------------------
+Write your most striking result as a bold claim here.
+E.g., "Three parties minimize collective alienation — more choice doesn't help."
+--------------------------------------------------------------------------------
+WRITE HERE:
+
+
+
+
+[id="result-body"]  — Result explanation (2–4 sentences)
+--------------------------------------------------------------------------------
+Write about what the result means here.
+Explain what "collective alienation" is, what was tested, what the data showed.
+--------------------------------------------------------------------------------
+WRITE HERE:
+
+
+
+
+[FOOTER — appears on every page]
+--------------------------------------------------------------------------------
+footer-name: Your name
+footer-github: Update the href to your GitHub URL
+--------------------------------------------------------------------------------
+NAME:
+GITHUB URL:

@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Simulations — Electoral Systems</title>
+  <link rel="stylesheet" href="css/style.css" />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=DM+Mono:wght@300;400;500&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
+</head>
+<body>
+
+  <nav class="nav">
+    <a href="index.html" class="nav-logo">Electoral Research</a>
+    <ul class="nav-links">
+      <li><a href="index.html">Home</a></li>
+      <li><a href="research.html">Research</a></li>
+      <li><a href="simulations.html" class="active">Simulations</a></li>
+      <li><a href="future.html">Future Work</a></li>
+      <li><a href="contact.html">Contact</a></li>
+    </ul>
+    <button class="nav-toggle" aria-label="Toggle menu">&#9776;</button>
+  </nav>
+
+  <header class="page-header">
+    <div class="container">
+      <span class="hero-label">Technical Details</span>
+      <h1 class="page-title">Simulations</h1>
+    </div>
+  </header>
+
+  <main class="container page-content">
+
+    <!-- SIM 1 -->
+    <section class="research-section" id="sim-voter">
+      <div class="research-label">sim_01 — voterSim.py</div>
+      <h2 class="research-heading">Two-Party Voter Simulation</h2>
+      <div class="research-body">
+        <p id="sim1-desc"><!-- CONTENT: Describe what voterSim.py does. It simulates a US two-party election using realistic voter distributions based on Pew Research data. Explain the ideology space, how Dem/Rep/Center/Cross voters are generated, what the happiness metric is, how many trials, etc. --></p>
+        
+        <div class="callout callout-mono">
+          <div class="callout-title">Voter Shares (Based on Pew Research, 2025)</div>
+          <div class="param-grid">
+            <div class="param"><span class="param-key">Democrat</span><span class="param-val">35.0%</span></div>
+            <div class="param"><span class="param-key">Republican</span><span class="param-val">35.5%</span></div>
+            <div class="param"><span class="param-key">Center</span><span class="param-val">25.5%</span></div>
+            <div class="param"><span class="param-key">Cross (independent)</span><span class="param-val">4.0%</span></div>
+          </div>
+        </div>
+
+        <p id="sim1-results"><!-- CONTENT: What did this simulation show? Who won, by how much? What does that tell us? --></p>
+      </div>
+    </section>
+
+    <div class="section-divider"></div>
+
+    <!-- SIM 2 -->
+    <section class="research-section" id="sim-third">
+      <div class="research-label">sim_02 — voterThirdPartySim.py</div>
+      <h2 class="research-heading">Third-Party Dynamics</h2>
+      <div class="research-body">
+        <p id="sim2-desc"><!-- CONTENT: Describe what voterThirdPartySim.py adds. The third party starts at [0]*10 (neutral) and adapts its position each election based on who votes for it. Explain negative partisanship (the +1 penalty), the fear factor, and what the "Trump effect" variable does to turnout. --></p>
+
+        <div class="callout callout-mono">
+          <div class="callout-title">Voter Shares (with Third Party)</div>
+          <div class="param-grid">
+            <div class="param"><span class="param-key">Democrat</span><span class="param-val">35.0%</span></div>
+            <div class="param"><span class="param-key">Republican</span><span class="param-val">35.5%</span></div>
+            <div class="param"><span class="param-key">Center</span><span class="param-val">25.5%</span></div>
+            <div class="param"><span class="param-key">Third Party</span><span class="param-val">1.68%</span></div>
+            <div class="param"><span class="param-key">Cross</span><span class="param-val">2.32%</span></div>
+          </div>
+        </div>
+
+        <p id="sim2-negative-partisanship"><!-- CONTENT: Explain negative partisanship as modeled here. The formula distDem -= (repExtreme * 0.4). What does this mean conceptually — voters stay loyal to one party out of fear of the other? --></p>
+
+        <figure class="figure">
+          <img src="assets/chart-voter-dist.png" alt="Voter Distribution: Leaning vs Firmness" class="figure-img"/>
+          <figcaption>Voter distribution plotted by political leaning vs. firmness (distance from center). Blue = Democrat, Red = Republican, Gold = Third Party.</figcaption>
+        </figure>
+
+        <p id="sim2-results"><!-- CONTENT: What did this simulation show about third-party performance? How did the third party's ideology evolve? What did the win counts look like? --></p>
+      </div>
+    </section>
+
+    <div class="section-divider"></div>
+
+    <!-- SIM 3 -->
+    <section class="research-section" id="sim-multiparty">
+      <div class="research-label">sim_03 — claudeElectionModel.py</div>
+      <h2 class="research-heading">Multi-Party Optimal Count Model</h2>
+      <div class="research-body">
+        <p id="sim3-desc"><!-- CONTENT: Describe the claudeElectionModel.py simulation. Parties are spread across the ideological spectrum with position noise. Voters cluster near parties. The metric is collective alienation — average voter distance to the winner. Explain the structure: 50 trials × 200 elections per trial. --></p>
+
+        <div class="callout callout-mono">
+          <div class="callout-title">Model Parameters</div>
+          <div class="param-grid">
+            <div class="param"><span class="param-key">Voters per election</span><span class="param-val">2,000</span></div>
+            <div class="param"><span class="param-key">Elections per trial</span><span class="param-val">200</span></div>
+            <div class="param"><span class="param-key">Trials per party count</span><span class="param-val">50</span></div>
+            <div class="param"><span class="param-key">Party range tested</span><span class="param-val">2–20</span></div>
+            <div class="param"><span class="param-key">Position noise (ε)</span><span class="param-val">0.02</span></div>
+          </div>
+        </div>
+
+        <p id="sim3-collective-alienation"><!-- CONTENT: Define collective alienation. It's the average Euclidean distance between each voter and the winning party's position in 10D ideology space. Why is this a meaningful metric for democratic quality? --></p>
+
+        <p id="sim3-results"><!-- CONTENT: What did the simulation output? Why does 3 come out optimal? What happens as you add more parties beyond 3? --></p>
+      </div>
+    </section>
+
+    <div class="section-divider"></div>
+
+    <!-- SIM 4 -->
+    <section class="research-section" id="sim-multiparty-ex">
+      <div class="research-label">sim_04 — voterMultiPartyExample.py</div>
+      <h2 class="research-heading">Multi-Party Example Simulation</h2>
+      <div class="research-body">
+        <p id="sim4-desc"><!-- CONTENT: Describe voterMultiPartyExample.py — what it demonstrates, how it differs from the other simulations, what you were exploring with it. --></p>
+      </div>
+    </section>
+
+  </main>
+
+  <footer class="footer">
+    <div class="container footer-inner">
+      <span class="footer-name" id="footer-name"><!-- CONTENT: Your name --></span>
+      <span class="footer-sep">·</span>
+      <a href="contact.html" class="footer-link">Contact</a>
+      <span class="footer-sep">·</span>
+      <a href="https://github.com/" class="footer-link" id="footer-github" target="_blank">GitHub</a>
+    </div>
+  </footer>
+
+  <script src="js/main.js"></script>
+</body>
+</html>
