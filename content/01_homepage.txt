@@ -1,19 +1,10 @@
 CONTENT FILE — index.html (Homepage)
-================================================================================
-Edit the sections below, then paste your text into the corresponding HTML
-elements (identified by their HTML id="..." attribute).
-
-To add content to the website, open the .html file and find the matching id.
-Replace the <!-- CONTENT: ... --> comment with your actual text.
-================================================================================
 
 
 [id="hero-sub"]  — Hero tagline (1–2 sentences)
 --------------------------------------------------------------------------------
-Write about your research tagline here.
-This should capture what you're studying and why it matters.
-Example direction: something like "Agent-based simulations exploring how party
-structures, voter ideology, and turnout interact to shape democratic outcomes."
+Agent-based simulations exploring how party
+counts and ideology, voter ideologies, and turnout interact to shape democratic outcomes.
 --------------------------------------------------------------------------------
 WRITE HERE:
 
@@ -27,7 +18,15 @@ What does the simulation capture? Why did you build it this way?
 --------------------------------------------------------------------------------
 WRITE HERE:
 
-
+When I started, I was writing a model to try to simulate accurately the 2024
+USA presidential election with pre-election polling data. This could be
+easily checked as the results are out, as well as those of many public models.
+Once I finished with that, I grew interested in what would happen with more and
+more parties. I eventually stumbled over the main problem statement - 
+"What would be the optimal number of parties in this system such that 
+voters are the most 'happy' in aggregate?". The model was easy to make from
+there as I had many of the parts (including the vector concept and distance formulae)
+already completed for my previous parts, and after some editing, I was able to find it.
 
 
 [id="overview-findings"]  — Overview card: Key Findings (2–3 sentences)
@@ -35,6 +34,15 @@ WRITE HERE:
 Write about your headline findings here.
 E.g., what did you discover about the optimal number of parties?
 What surprised you?
+
+The model returned an expected results with interesting footnotes. I hypothesized
+before running the model that it would find some sort of sweet spot between the
+2 party system (which bows to hard division and negative partisanship), and 5+
+parties, which would cause fragmentation. But it was interesting that the 3 party
+system not only proved improvement by over 0.1 length to party, but also was
+one of the least noisy systems.
+
+
 --------------------------------------------------------------------------------
 WRITE HERE:
 
