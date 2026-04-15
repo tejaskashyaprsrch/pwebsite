@@ -87,3 +87,7 @@ In every HTML file, update:
 ---
 
 Built with plain HTML/CSS/JS. No frameworks, no dependencies, no build step.
+
+---
+
+By Tejas Kashyap
