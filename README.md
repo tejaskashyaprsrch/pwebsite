@@ -1,6 +1,6 @@
 # Electoral Systems Research — Website:
 
-For full run-through, visit tejaskashyaprsrch.github.io/pwebsite/
+For full run-through, visit [tejaskashyaprsrch.github.io/pwebsite/](url)
 
 For files, full research: https://github.com/tejaskashyaprsrch/allElectionModelingRsrch
 
