@@ -1,4 +1,4 @@
-# Electoral Systems Research — Website
+# Electoral Systems Research — Website: For full research documentation and interactive simulations, visit tejaskashyaprsrch.github.io/pwebsite/
 
 A static research website for computational electoral modeling work.
 
